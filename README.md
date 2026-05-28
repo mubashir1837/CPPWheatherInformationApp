@@ -3,6 +3,8 @@
 ## Description
 This Weather Information App is a Java Swing GUI application built using a structured MVC and Layered Architecture approach. It fetches and displays real-time weather data and short-term forecasts for any given location. It fulfills all requirements of the CS 1103-01 Unit 8 Programming Assignment.
 
+![Weather Dashboard](screenshots/dashboard.png)
+
 ## Features Included
 1. **API Integration**: Integrates with the open-source Open-Meteo API using standard Java networking (`HttpURLConnection`), without requiring external libraries.
 2. **GUI Design**: Fully functional Java Swing interface with clear navigation, text inputs, buttons, and multiple panels.
