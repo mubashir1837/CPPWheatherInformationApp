@@ -1,43 +1,100 @@
-# Weather Information App
+# 🌤️ Modern C++ Weather Information App
 
-## Description
-This Weather Information App is a Java Swing GUI application built using a structured MVC and Layered Architecture approach. It fetches and displays real-time weather data and short-term forecasts for any given location. The application integrates with the Open-Meteo API to retrieve weather information and presents it in a user-friendly interface. It includes features such as unit conversion, error handling, search history tracking, and dynamic backgrounds based on the time of day.
+![C++](https://img.shields.io/badge/C++-17-blue.svg)
+![Qt](https://img.shields.io/badge/Qt-6.0%2B-41CD52.svg)
+![License](https://img.shields.io/badge/License-MIT-green.svg)
+![Build](https://img.shields.io/badge/build-passing-brightgreen)
 
-![Weather Dashboard](screenshots/dashboard.png)
+A fast, desktop weather application built entirely in **C++** using the **Qt6 Framework**. This high-performance GUI application leverages the open-source **Open-Meteo API** to deliver real-time, highly accurate meteorological data for any city across the globe. 
 
-## Features Included
-1. **API Integration**: Integrates with the open-source Open-Meteo API using standard Java networking (`HttpURLConnection`), without requiring external libraries.
-2. **GUI Design**: Fully functional Java Swing interface with clear navigation, text inputs, buttons, and multiple panels.
-3. **Display Weather Information**: Shows current temperature, humidity, wind speed, and weather conditions.
-4. **Icon Representation**: Uses visual Unicode-based weather icons (e.g., ☀️, ⛅, 🌧️) as lightweight, dependency-free icons representing the condition.
-5. **Forecast Display**: Includes a dedicated bottom panel (`ForecastPanel`) showing the day's min and max temperature forecasts.
-6. **Unit Conversion**: Features a `SettingsPanel` with a toggle to switch between Celsius/Fahrenheit for temperature and km/h to mph for wind speed.
-7. **Error Handling**: Implements custom exception classes (`ApiException`, `InvalidLocationException`) and displays UI warnings using `JOptionPane` if the location is invalid or the connection fails.
-8. **History Tracking**: `SearchHistoryPanel` keeps a scrolling timestamped log of recent location searches.
-9. **Dynamic Backgrounds**: `BackgroundManager` dynamically alters the display background based on the time of day (is_day) at the target location.
+---
 
-## Project Structure
-The project is organized cleanly:
-- `src/main/java/com/weatherapp/api/`: API integration and HTTP connections
-- `src/main/java/com/weatherapp/model/`: Data structures
-- `src/main/java/com/weatherapp/service/`: Business logic, unit conversion, dynamic background logic
-- `src/main/java/com/weatherapp/ui/`: Java Swing Graphical User Interface classes
-- `src/main/java/com/weatherapp/utils/`: Utilities like JSON parsing without external dependencies
+## Key Features
 
-## How to compile and run
+- **Real-Time Weather Tracking**: Get instant updates on current temperature, wind speed, and dynamic weather conditions (Clear, Cloudy, Rainy, Snow, etc.).
+- **Smart Geocoding Algorithm**: Employs an intelligent prioritization algorithm that automatically prioritizes capital cities, sovereign nations, and high-population areas when searching for ambiguous location names (e.g., "Vatican").
+- **Asynchronous API Integration**: Utilizes `QNetworkAccessManager` for non-blocking HTTP requests, ensuring the user interface remains flawlessly smooth and responsive at all times.
+- **Premium Glassmorphism UI**: A gorgeous, custom-styled dark theme utilizing Qt Style Sheets (QSS), complete with rounded corners, interactive hover states, and smooth drop-shadow effects.
+- **Native JSON Parsing**: Fast and efficient data extraction using Qt's built-in `QJsonDocument`, completely eliminating the need for third-party dependencies.
 
-### Using Maven:
-Navigate to the root directory where `pom.xml` is located:
+---
+
+## Technology Stack
+
+- **Language**: C++17
+- **Framework**: Qt6 (Core, Gui, Widgets, Network)
+- **Build System**: CMake (Minimum version 3.16)
+- **Data Source**: Open-Meteo API & Open-Meteo Geocoding API
+
+---
+
+## Installation & Setup
+
+### Prerequisites
+To compile and run this application, ensure you have a C++ compiler, CMake, and the Qt6 development libraries installed.
+
+**For Ubuntu/Debian Linux:**
 ```bash
-mvn clean compile
-mvn exec:java -Dexec.mainClass="com.weatherapp.Main"
+sudo apt-get update
+sudo apt-get install build-essential cmake qt6-base-dev
 ```
 
-### Using standard `javac`:
-```bash
-# Compile all source files into an 'out' directory
-javac -d out $(find src -name "*.java")
+### Build Instructions
 
-# Run the Main class
-java -cp out com.weatherapp.Main
+1. **Clone the repository** (or navigate to the project root directory).
+2. **Create a build directory** to keep your source tree clean:
+   ```bash
+   mkdir build && cd build
+   ```
+3. **Configure the project** using CMake:
+   ```bash
+   cmake ..
+   ```
+4. **Compile the source code**:
+   ```bash
+   make
+   ```
+
+---
+
+## 🌩️ Usage
+
+After a successful build, launch the application from your terminal:
+
+```bash
+./WeatherInformationApp
 ```
+
+1. Enter a city name, country, or specific location in the top search bar (e.g., `London`, `Tokyo`, `New York`).
+2. Press **Enter** or click the **Search** button.
+3. Instantly view the accurate, up-to-date weather profile on the beautifully designed interactive dashboard.
+
+---
+
+## Distribution & Releases
+
+Because compiled binaries (like `.deb` files) are generally excluded from Git tracking (via `.gitignore`), we use **GitHub Releases** for distribution. 
+
+### If you are the Developer (Releasing the app):
+1. In your `build` directory, run:
+   ```bash
+   make package
+   ```
+2. Go to your GitHub Repository -> **Releases** -> **Draft a new release**.
+3. Upload the generated `weather-information-app-1.0.0-Linux.deb` file as an asset to your release and publish it.
+
+### If you are a User (Installing the app):
+1. Go to the [Releases page](../../releases) of this repository.
+2. Download the `.deb` installer file.
+3. Double-click the downloaded file, or install it via terminal:
+   ```bash
+   sudo apt install ./weather-information-app-1.0.0-Linux.deb
+   ```
+
+---
+
+## Contributing
+Contributions, issues, and feature requests are welcome! Feel free to check the issues page if you want to contribute.
+
+## License
+This project is open-source and available under the MIT License.
