@@ -1,0 +1,47 @@
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.backup
+release.properties
+dependency-reduced-pom.xml
+.flattened-pom.xml
+
+Unit8_Submission.md
+
+# IDEs
+.idea/
+.classpath
+.project
+.settings/
+*.swp
+*.swo
+*~
+.DS_Store
+*.iml
+.vscode/
+
+# Build directories
+out/
+build/
+bin/
+
+# Compiled files
+*.class
+*.jar
+*.war
+*.ear
+*.zip
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE specific files
+.idea/
+*.sublime-project
+*.sublime-workspace
