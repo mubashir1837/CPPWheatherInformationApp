@@ -1,7 +1,7 @@
-# Weather Information App - Unit 8 Programming Assignment
+# Weather Information App
 
 ## Description
-This Weather Information App is a Java Swing GUI application built using a structured MVC and Layered Architecture approach. It fetches and displays real-time weather data and short-term forecasts for any given location. It fulfills all requirements of the CS 1103-01 Unit 8 Programming Assignment.
+This Weather Information App is a Java Swing GUI application built using a structured MVC and Layered Architecture approach. It fetches and displays real-time weather data and short-term forecasts for any given location. The application integrates with the Open-Meteo API to retrieve weather information and presents it in a user-friendly interface. It includes features such as unit conversion, error handling, search history tracking, and dynamic backgrounds based on the time of day.
 
 ![Weather Dashboard](screenshots/dashboard.png)
 
