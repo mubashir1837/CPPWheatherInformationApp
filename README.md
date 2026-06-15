@@ -85,14 +85,14 @@ Because compiled binaries (like `.deb` files) are generally excluded from Git tr
    make package
    ```
 2. Go to your GitHub Repository -> **Releases** -> **Draft a new release**.
-3. Upload the generated `weather-information-app-1.0.0-Linux.deb` file as an asset to your release and publish it.
+3. Upload the generated `weather-information-app-1.1.0-Linux.deb` file as an asset to your release and publish it.
 
 ### If you are a User (Installing the app):
 1. Go to the [Releases page](../../releases) of this repository.
 2. Download the `.deb` installer file.
 3. Double-click the downloaded file, or install it via terminal:
    ```bash
-   sudo apt install ./weather-information-app-1.0.0-Linux.deb
+   sudo apt install ./weather-information-app-1.1.0-Linux.deb
    ```
 
 ---
