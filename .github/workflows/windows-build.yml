@@ -1,0 +1,45 @@
+name: Windows Build (.exe)
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+  workflow_dispatch: # Allows manual trigger
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Install Qt
+      uses: jurplel/install-qt-action@v3
+      with:
+        version: '6.5.3'
+        host: 'windows'
+        target: 'desktop'
+        arch: 'win64_msvc2019_64'
+        modules: 'qtcharts'
+
+    - name: Configure CMake
+      run: |
+        mkdir build
+        cd build
+        cmake .. -DCMAKE_BUILD_TYPE=Release
+
+    - name: Build
+      run: cmake --build build --config Release
+
+    - name: Run windeployqt
+      run: |
+        cd build\Release
+        windeployqt WeatherInformationApp.exe
+
+    - name: Upload Windows executable artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: WeatherInformationApp-Windows
+        path: build/Release/

@@ -12,6 +12,10 @@ A fast, desktop weather application built entirely in **C++** using the **Qt6 Fr
 ## Key Features
 
 - **Real-Time Weather Tracking**: Get instant updates on current temperature, wind speed, and dynamic weather conditions (Clear, Cloudy, Rainy, Snow, etc.).
+- **Extended Forecasts & Deep History**: Access up to 16-day forecasts and 80+ years of historical weather data.
+- **Environmental & Specialized Data**: Access Air Quality Index (AQI), Allergy/Pollen metrics, Marine/Ocean weather, and Flood APIs.
+- **Advanced Meteorological Models**: Support for ensemble models (ECMWF, GFS, ICON) and long-term Climate Change Projections.
+- **Utility APIs**: Access accurate Elevation data and Solar Radiation metrics for any location.
 - **Smart Geocoding Algorithm**: Employs an intelligent prioritization algorithm that automatically prioritizes capital cities, sovereign nations, and high-population areas when searching for ambiguous location names (e.g., "Vatican").
 - **Asynchronous API Integration**: Utilizes `QNetworkAccessManager` for non-blocking HTTP requests, ensuring the user interface remains flawlessly smooth and responsive at all times.
 - **Premium Glassmorphism UI**: A gorgeous, custom-styled dark theme utilizing Qt Style Sheets (QSS), complete with rounded corners, interactive hover states, and smooth drop-shadow effects.

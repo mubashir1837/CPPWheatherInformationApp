@@ -8,26 +8,36 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
-find_package(Qt6 COMPONENTS Core Gui Widgets Network REQUIRED)
+find_package(Qt6 COMPONENTS Core Gui Widgets Network Charts REQUIRED)
 
-add_executable(WeatherInformationApp
+add_executable(WeatherInformationApp WIN32
     src/main.cpp
     src/MainWindow.cpp
     src/MainWindow.h
+    resources.qrc
 )
 
-target_link_libraries(WeatherInformationApp PRIVATE Qt6::Core Qt6::Gui Qt6::Widgets Qt6::Network)
+target_link_libraries(WeatherInformationApp PRIVATE Qt6::Core Qt6::Gui Qt6::Widgets Qt6::Network Qt6::Charts)
 
-# Install rules for CPack
-install(TARGETS WeatherInformationApp DESTINATION bin)
-install(FILES WeatherApp.desktop DESTINATION share/applications)
+# Install rules for Linux
+if(UNIX AND NOT APPLE)
+    install(TARGETS WeatherInformationApp DESTINATION bin)
+    install(FILES WeatherApp.desktop DESTINATION share/applications)
 
-# CPack configuration for generating a .deb file
-set(CPACK_GENERATOR "DEB")
-set(CPACK_PACKAGE_NAME "weather-information-app")
-set(CPACK_PACKAGE_VERSION "1.0.0")
-set(CPACK_PACKAGE_CONTACT "Ali <mubashirali1837@gmail.com>")
-set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Modern C++ Weather Information Application")
-set(CPACK_DEBIAN_PACKAGE_DEPENDS "libc6 (>= 2.31), libqt6core6t64, libqt6gui6t64, libqt6widgets6t64, libqt6network6t64")
+    # CPack configuration for generating a .deb file
+    set(CPACK_GENERATOR "DEB")
+    set(CPACK_PACKAGE_NAME "weather-information-app")
+    set(CPACK_PACKAGE_VERSION "1.0.0")
+    set(CPACK_PACKAGE_CONTACT "Ali <mubashirali1837@gmail.com>")
+    set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Modern C++ Weather Information Application")
+    set(CPACK_DEBIAN_PACKAGE_DEPENDS "libc6 (>= 2.31), libqt6core6t64, libqt6gui6t64, libqt6widgets6t64, libqt6network6t64, libqt6charts6")
+    include(CPack)
+endif()
 
-include(CPack)
+# Windows packaging helper via CPack (creates a ZIP)
+if(WIN32)
+    set(CPACK_GENERATOR "ZIP")
+    set(CPACK_PACKAGE_NAME "WeatherInformationApp-Windows")
+    set(CPACK_PACKAGE_VERSION "1.0.0")
+    include(CPack)
+endif()
