@@ -7,6 +7,9 @@
 
 A fast, desktop weather application built entirely in **C++** using the **Qt6 Framework**. This high-performance GUI application leverages the open-source **Open-Meteo API** to deliver real-time, highly accurate meteorological data for any city across the globe. 
 
+<img src="https://github.com/mubashir1837/CPPWeatherInformationApp/blob/main/screenshots/dashboard.png" />
+
+
 ---
 
 ## Key Features
